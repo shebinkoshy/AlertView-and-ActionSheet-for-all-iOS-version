@@ -88,11 +88,11 @@
 
 -(void)alertButtonActionsWithTag:(NSInteger)tag buttonIndex:(NSInteger)buttonIndex withButtonTitle:(NSString*)buttonTitle alertDelegate:(id<AlertDelegate>)alertDelegate
 {
+    [_arrayAlertDelegates removeLastObject];
     if (alertDelegate && [alertDelegate isKindOfClass:[NSNull class]] == NO)
     {
         [alertDelegate alertWithTag:tag buttonActionWithButtonIndex:buttonIndex withButtonTitle:buttonTitle];
-    }
-    [_arrayAlertDelegates removeLastObject];
+    }    
 }
 
 
@@ -184,11 +184,11 @@
 
 -(void)actionButtonActionsWithTag:(NSInteger)tag buttonIndex:(NSInteger)buttonIndex withButtonTitle:(NSString*)buttonTitle actionSheetDelegate:(id<ActionSheetDelegate>)actionSheetDelegate
 {
+    [_arrayActionSheetDelegates removeLastObject];
     if (actionSheetDelegate && [actionSheetDelegate isKindOfClass:[NSNull class]] == NO)
     {
         [actionSheetDelegate actionSheetWithTag:tag buttonActionWithButtonIndex:buttonIndex withButtonTitle:buttonTitle];
-    }
-    [_arrayActionSheetDelegates removeLastObject];
+    }    
 }
 
 #pragma mark - UIActionSheet delegate (iOS 7.0)
